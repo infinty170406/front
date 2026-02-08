@@ -1,0 +1,67 @@
+name: the_guardian
+description: A parental control app to protect children online
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI & Icons
+  cupertino_icons: ^1.0.6
+  google_fonts: ^6.1.0
+  animate_do: ^3.3.4
+  
+  # State Management
+  flutter_riverpod: ^2.4.9
+  
+  # Storage
+  shared_preferences: ^2.2.2
+  
+  # Navigation (Optional - keeping raw Navigator for now as per minimal deps, but good to have option)
+  # go_router: ^13.0.0
+
+  # Utilities
+  # intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - assets/images/
+  #   - assets/icons/
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font.
+  
+  fonts:
+    - family: Lexend
+      fonts:
+        - asset: assets/fonts/Lexend-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Lexend-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Lexend-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Lexend-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Lexend-ExtraBold.ttf
+          weight: 800
+
+  # NOTE: To use the Lexend font, download it from Google Fonts:
+  # https://fonts.google.com/specimen/Lexend
+  # And place the font files in assets/fonts/ directory
