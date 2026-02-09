@@ -2,7 +2,6 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/theme/app_theme.dart';
-import '../../../../routes.dart';
 import '../providers/auth_provider.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -24,22 +23,19 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   void _handleLogin() async {
-    final success = await ref.read(authProvider.notifier).login(
-      _emailController.text,
-      _passwordController.text,
-    );
-    
+    final success = await ref.read(authNotifierProvider.notifier).login(
+          _emailController.text,
+          _passwordController.text,
+        );
+
     if (success && mounted) {
-      // Navigate to Dashboard (assuming returning user) or AI Welcome
-      // For this flow, let's go to Dashboard or AI guide depending on state.
-      // We'll go to MultiChildDashboard for now.
-      Navigator.pushReplacementNamed(context, AppRoutes.multiChildDashboard);
+      Navigator.pushReplacementNamed(context, '/dashboard');
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final authState = ref.watch(authProvider);
+    final authState = ref.watch(authNotifierProvider);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -68,12 +64,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               child: Text(
                 'Connectez-vous pour gérer la sécurité de vos enfants.',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: AppTheme.textGrey,
-                ),
+                      color: AppTheme.textGrey,
+                    ),
               ),
             ),
             const SizedBox(height: 48),
-            
             FadeInUp(
               delay: const Duration(milliseconds: 400),
               child: Column(
@@ -98,9 +93,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ],
               ),
             ),
-            
             const SizedBox(height: 32),
-            
             if (authState.error != null)
               Padding(
                 padding: const EdgeInsets.only(bottom: 16),
@@ -110,16 +103,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   textAlign: TextAlign.center,
                 ),
               ),
-
             FadeInUp(
               delay: const Duration(milliseconds: 600),
               child: SizedBox(
                 height: 56,
                 child: ElevatedButton(
                   onPressed: authState.isLoading ? null : _handleLogin,
-                  child: authState.isLoading 
-                    ? const CircularProgressIndicator(color: Colors.white)
-                    : const Text('Se connecter'),
+                  child: authState.isLoading
+                      ? const CircularProgressIndicator(color: Colors.white)
+                      : const Text('Se connecter'),
                 ),
               ),
             ),

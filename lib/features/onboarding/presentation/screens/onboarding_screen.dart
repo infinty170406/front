@@ -17,17 +17,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final List<Map<String, String>> _pages = [
     {
       'title': 'Pourquoi se protéger ?',
-      'desc': 'Internet est vaste. Protégez vos enfants des contenus inappropriés et des dangers en ligne.',
+      'desc':
+          'Internet est vaste. Protégez vos enfants des contenus inappropriés et des dangers en ligne.',
       'icon': 'shield',
     },
     {
       'title': 'L\'IA à vos côtés',
-      'desc': 'Notre intelligence artificielle analyse et vous conseille en temps réel pour une protection adaptée.',
+      'desc':
+          'Notre intelligence artificielle analyse et vous conseille en temps réel pour une protection adaptée.',
       'icon': 'ai',
     },
     {
       'title': 'Sérénité Totale',
-      'desc': 'Gardez le contrôle avec bienveillance. L\'IA pense, vous décidez.',
+      'desc':
+          'Gardez le contrôle avec bienveillance. L\'IA pense, vous décidez.',
       'icon': 'peace',
     },
   ];
@@ -153,13 +156,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     curve: Curves.easeInOut,
                   );
                 } else {
-                  Navigator.pushReplacementNamed(
-                      context, AppRoutes.createParentAccount);
+                  Navigator.pushReplacementNamed(context, AppRoutes.signup);
                 }
               },
-              child: Text(_currentPage == _pages.length - 1
-                  ? 'Commencer'
-                  : 'Suivant'),
+              child: Text(
+                  _currentPage == _pages.length - 1 ? 'Commencer' : 'Suivant'),
             ),
           ),
         ],

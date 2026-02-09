@@ -6,7 +6,7 @@ import 'routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Set system UI overlay style
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -16,13 +16,13 @@ void main() {
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
   );
-  
+
   // Set preferred orientations
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  
+
   runApp(const ProviderScope(child: TheGuardianApp()));
 }
 
@@ -35,11 +35,11 @@ class TheGuardianApp extends ConsumerWidget {
       title: 'The Guardian',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme, // We'll focus on Light theme for now as "Premium" default
-      themeMode: ThemeMode.light, 
-      initialRoute: AppRoutes.splashScreen,
+      darkTheme: AppTheme
+          .darkTheme, // We'll focus on Light theme for now as "Premium" default
+      themeMode: ThemeMode.light,
+      initialRoute: AppRoutes.splash,
       onGenerateRoute: AppRoutes.generateRoute,
-      routes: AppRoutes.routes,
     );
   }
 }

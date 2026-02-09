@@ -20,7 +20,6 @@ class _SplashScreenScreenState extends State<SplashScreenScreen> {
   _navigateToNext() async {
     await Future.delayed(const Duration(seconds: 3));
     if (mounted) {
-      // Navigate to the new simplified Onboarding route
       Navigator.pushReplacementNamed(context, AppRoutes.onboarding);
     }
   }

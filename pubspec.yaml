@@ -22,6 +22,10 @@ dependencies:
   
   # Storage
   shared_preferences: ^2.2.2
+  dio: ^5.9.1
+  flutter_secure_storage: ^10.0.0
+  logger: ^2.6.2
+  intl: ^0.20.2
   
   # Navigation (Optional - keeping raw Navigator for now as per minimal deps, but good to have option)
   # go_router: ^13.0.0

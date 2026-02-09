@@ -27,20 +27,24 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   }
 
   void _handleSignUp() async {
-    final success = await ref.read(authProvider.notifier).signUp(
+    final success = await ref.read(authNotifierProvider.notifier).register(
+          _nameController.text,
           _emailController.text,
           _passwordController.text,
         );
 
     if (success && mounted) {
-      // Navigate to AI Welcome (or dedicated AI setup flow)
-      Navigator.pushReplacementNamed(context, AppRoutes.aiAssistantGuide);
+      Navigator.pushNamed(
+        context,
+        AppRoutes.verifyOtp,
+        arguments: _emailController.text,
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final authState = ref.watch(authProvider);
+    final authState = ref.watch(authNotifierProvider);
 
     return Scaffold(
       backgroundColor: Colors.white,
